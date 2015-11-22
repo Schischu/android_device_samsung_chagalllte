@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2013 The CyanogenMod Project
+# Copyright (C) 2015 The Android Open-Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -146,8 +146,9 @@ BOARD_USE_VP8ENC_SUPPORT := true
 BOARD_USE_ENCODER_RGBINPUT_SUPPORT := true
 BOARD_USE_DUALDPB_MODE := true
 
-WITH_DEXPREOPT := true
-DONT_DEXPREOPT_PREBUILTS := true
+# Not yet compatible with art
+#WITH_DEXPREOPT := true
+#DONT_DEXPREOPT_PREBUILTS := true
 
 #default TARGET_USERIMAGES_USE_EXT4 := true
 #TARGET_USERIMAGES_USE_F2FS := true
