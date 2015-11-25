@@ -15,6 +15,7 @@
     <item name="radio.scanning">29</item>
     <array name="radio.on">
         <value>5.0</value>
+        <value>5.0</value>
     </array>
     <array name="cpu.speeds">
         <value>1900000</value>
