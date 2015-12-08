@@ -220,7 +220,7 @@ class Gain:
           s += str(device) + "\n"
       
       s += str(self) + "\n"
-      if self.channel != "unknown":
+      if self.deviceType == self.INPUT and self.channel != "unknown":
         s += "    <path name=\"channel-" + self.channel + "\" />\n"
       s += "    <path name=\"verb-" + m + "\" />\n\n"
       
@@ -299,6 +299,11 @@ for tinyucmElement in tinyucmElements:
         e.value = enableSplit[1].strip()
       else:
         e.value = k[0].strip()
+      
+      #Even if tinymix sets 0, we need 130Hz!
+      if e.key == "LHPF1 COEFF FILTER" or e.key == "LHPF2 COEFF FILTER":
+        e.value = "130Hz"
+      
       coreMap.append(e)
       del e
   
