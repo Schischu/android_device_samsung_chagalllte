@@ -136,7 +136,7 @@
          bluetooth interfaces.  If the device doesn't want to support tethering over bluetooth this
          should be empty. -->
     <string-array translatable="false" name="config_tether_bluetooth_regexs">
-           <item>"bt-pan"</item>
+        <item>"bt-pan"</item>
     </string-array>
 
     <!-- Max number of scan filters supported by blutooth controller. 0 if the
@@ -153,8 +153,9 @@
     <integer-array translatable="false" name="config_tether_upstream_types">
         <item>0</item>
         <item>1</item>
-        <item>5</item>
+        <item>4</item>
         <item>7</item>
+        <item>9</item>
     </integer-array>
 
     <!-- The duration (in milliseconds) that the radio will scan for a signal
@@ -177,8 +178,8 @@
         <item>"mobile_supl,3,0,2,60000,true"</item>
         <item>"mobile_dun,4,0,2,60000,true"</item>
         <item>"mobile_hipri,5,0,3,60000,true"</item>
-        <item>"bluetooth,7,7,2,-1,true"</item>
-        <item>"ethernet,9,9,9,-1,true"</item>
+        <item>"bluetooth,7,7,0,-1,true"</item>
+        <item>"ethernet,9,9,2,-1,true"</item>
         <item>"mobile_fota,10,0,2,60000,true"</item>
         <item>"mobile_ims,11,0,2,-1,true"</item>
         <item>"mobile_cbs,12,0,2,60000,true"</item>
@@ -245,7 +246,7 @@
          it causes the device to wake up.
          The default is false. -->
     <!-- Is false on Samsung STOCK ROM -->
-    <bool name="config_lidControlsSleep">false</bool>
+    <bool name="config_lidControlsSleep">true</bool>
 
     <!-- Indicate whether to allow the device to suspend when the screen is off
          due to the proximity sensor.  This resource should only be set to true
@@ -325,6 +326,19 @@
          correctly use them when installed on your device.  Otherwise, keep this disabled
          so that applications can still use their own mechanisms. -->
     <bool name="config_enableAutoPowerModes">true</bool>
+
+    <string-array name="config_disabledUntilUsedPreinstalledImes">
+        <item>com.google.android.inputmethod.latin</item>
+        <item>com.google.android.apps.inputmethod.hindi</item>
+        <item>com.google.android.inputmethod.japanese</item>
+        <item>com.google.android.inputmethod.korean</item>
+        <item>com.google.android.inputmethod.pinyin</item>
+        <item>jp.co.omronsoft.iwnnime.ml</item>
+        <item>com.nuance.xt9.input</item>
+    </string-array>
+    <string-array name="config_disabledUntilUsedPreinstalledCarrierApps">
+        <item>com.google.android.apps.tycho</item>
+    </string-array>
 
     <!-- Package name(s) containing location provider support.
          These packages can contain services implementing location providers,
