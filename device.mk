@@ -19,6 +19,9 @@ $(call inherit-product, device/samsung/chagall-klimt-common/device.mk)
 PRODUCT_PACKAGES += \
     init.baseband.rc
 
+PRODUCT_COPY_FILES += \
+    device/samsung/chagalllte/audio/mixer_paths.xml:system/etc/mixer_paths.xml
+
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
