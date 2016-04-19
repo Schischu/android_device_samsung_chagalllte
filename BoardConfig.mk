@@ -23,6 +23,9 @@ BOARD_PROVIDES_LIBRIL := true
 # hardware/samsung/ril
 BOARD_MODEM_TYPE := xmm7260
 
+BOARD_CAMERA_FRONT_ROTATION=0
+BOARD_CAMERA_BACK_ROTATION=0
+
 # Kernel
 TARGET_KERNEL_CONFIG := cyanogenmod_chagalllte_defconfig
 
