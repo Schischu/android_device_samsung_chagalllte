@@ -20,6 +20,9 @@ PRODUCT_PACKAGES += \
     init.baseband.rc
 
 PRODUCT_COPY_FILES += \
+    device/samsung/chagalllte/audio/audio_policy.conf:system/etc/audio_policy.conf
+
+PRODUCT_COPY_FILES += \
     device/samsung/chagalllte/audio/mixer_paths.xml:system/etc/mixer_paths.xml
 
 # These are the hardware-specific features
