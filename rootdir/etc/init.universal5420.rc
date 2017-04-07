@@ -69,6 +69,23 @@ on post-fs-data
 
     #Create directory for hostapd
     mkdir /data/hostapd 0770 system wifi
+    
+    # Cleanup invalid directories
+    rm /data/data/com.android.providers.telephony/opname.db
+    rm /data/data/com.android.providers.telephony/databases/HbpcdLookup.db
+    rm /data/data/com.android.providers.telephony/databases/HbpcdLookup.db-journal
+    rm /data/data/com.android.providers.telephony/databases/mmssms.db
+    rm /data/data/com.android.providers.telephony/databases/mmssms.db-journal
+    rm /data/data/com.android.providers.telephony/databases/telephony.db
+    rm /data/data/com.android.providers.telephony/databases/telephony.db-journal
+
+    rmdir /data/data/com.android.providers.telephony/databases
+    rmdir /data/data/com.android.providers.telephony/files
+    rmdir /data/data/com.android.providers.telephony/shared_prefs
+    rmdir /data/data/com.android.providers.telephony
+    
+    # Create a legacy dir which has the same length as /data/data for pre N blobs
+    symlink /data/user_de/0 /data/ude0
 
     setprop vold.post_fs_data_done 1
 
@@ -84,6 +101,11 @@ on boot
     setprop ro.build.product universal_5420
     setprop ro.product.device universal_5420
 #    chmod 0666 /dev/pvrsrvkm
+
+# Media
+    chmod 0666 /dev/video6
+    chmod 0666 /dev/video7
+    chmod 0666 /dev/video50
 
 # mobicore
     mkdir /data/app/mcRegistry 0775 system system
@@ -227,12 +249,6 @@ on boot
 #    chown system radio /sys/class/camera/rear/isp_core
     chown system radio /sys/class/camera/front/front_camfw
     chown system radio /sys/class/camera/front/front_camtype
-    
-    # Workaround for dirty flash issue MM->NG
-    mkdir /data/user_de/0/com.android.providers.telephony/files 0777 system system 
-    mkdir /data/user_de/0/com.android.providers.telephony/databases 0777 system system 
-    #write /data/user_de/0/com.android.providers.telephony/databases/HbpcdLookup.db 0
-    #chmod 666 /data/user_de/0/com.android.providers.telephony/databases/HbpcdLookup.db
 
 # Switch Device
     chown system radio /sys/class/sec/switch/otg_test
